@@ -91,3 +91,10 @@ Create tests/lib.sh and tests/run_all.sh. lib.sh defines a bash function check N
 ```
 Create tests/check_rules.sh that statically checks the four files code/<ID>_q1.pl, code/<ID>_q2.pl, code/<ID>_q3.rkt, code/<ID>_q4.rkt. For Prolog files report any use of assert, asserta, assertz, retract, b_setval, nb_setval, initialization, halt, and any use_module of a library other than lists, apply, yall, aggregate. For Racket files report: first line is not #lang racket/base, and any call (matching "(name " or "'name" patterns, not substrings of longer names like my-map) of: set!, vector, make-hash, hash, string, length, append, reverse, map, filter, member, memq, list-ref, list-tail, add1, sub1, equal?, eqv?, list?, for, do, printf, displayln, print. Also report any top-level expression that is not a define. Print one line per problem with file and line number, exit non-zero if any found. Touch only this file.
 ```
+
+## H-2-fix
+
+```
+Update tests/check_rules.sh to detect whether python3 or python is available by executing python3 -c "" >/dev/null 2>&1, falling back to python if python3 fails (supporting Windows environments where python3 is a Microsoft Store redirect).
+```
+
