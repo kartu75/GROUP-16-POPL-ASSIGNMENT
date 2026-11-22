@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Tests for code/16_q1.pl (P1: department assignment puzzle).
+# Tests for code/67_q1.pl (P1: department assignment puzzle).
 # Run from anywhere: bash tests/test_q1.sh   (or through tests/run_all.sh)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.." || exit 1
 source tests/lib.sh
 
-FILE=code/16_q1.pl
+FILE=code/67_q1.pl
 
 # pl GOAL: run GOAL on FILE and drop the \r that swipl adds on Windows.
 pl() {

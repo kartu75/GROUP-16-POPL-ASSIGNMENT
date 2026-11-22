@@ -3,7 +3,7 @@
 ## Result of count_solutions for clues 1 to 8
 
 ```
-swipl -q -f code/16_q1.pl -g "count_solutions([1,2,3,4,5,6,7,8], N), write(N), nl" -t halt
+swipl -q -f code/67_q1.pl -g "count_solutions([1,2,3,4,5,6,7,8], N), write(N), nl" -t halt
 3
 ```
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Tests for code/16_q3.rkt (S1: binary tree traversals and statistics).
+# Tests for code/67_q3.rkt (S1: binary tree traversals and statistics).
 # Run from anywhere: bash tests/test_q3.sh   (or through tests/run_all.sh)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.." || exit 1
 source tests/lib.sh
 
-FILE=code/16_q3.rkt
+FILE=code/67_q3.rkt
 
 rkt() {
     run_rkt "$FILE" "$1" 2>&1 | tr -d '\r'
@@ -73,7 +73,7 @@ check "depth 5000 left-leaning tree height does not crash" "5000" \
     "$(rkt "$DEEP_SNIPPET")"
 
 # (8) Loading file prints nothing
-check "loading code/16_q3.rkt prints nothing" "" \
+check "loading code/67_q3.rkt prints nothing" "" \
     "$(rkt "")"
 
 echo

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # check_rules.sh
-# Statically checks code/16_q1.pl, code/16_q2.pl, code/16_q3.rkt, code/16_q4.rkt
+# Statically checks code/67_q1.pl, code/67_q2.pl, code/67_q3.rkt, code/67_q4.rkt
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -22,7 +22,7 @@ if not group_id:
         base = os.path.basename(matches[0])
         group_id = base.split("_")[0]
     else:
-        group_id = "16"
+        group_id = "67"
 
 if len(sys.argv) > 1:
     target_files = sys.argv[1:]

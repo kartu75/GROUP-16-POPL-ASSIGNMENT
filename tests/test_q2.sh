@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Tests for code/16_q2.pl (P2: arithmetic equations and canonical printer).
+# Tests for code/67_q2.pl (P2: arithmetic equations and canonical printer).
 # Run from anywhere: bash tests/test_q2.sh (or through tests/run_all.sh)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.." || exit 1
 source tests/lib.sh
 
-ID="${GROUP_ID:-16}"
+ID="${GROUP_ID:-67}"
 FILE="code/${ID}_q2.pl"
 
 pl() {

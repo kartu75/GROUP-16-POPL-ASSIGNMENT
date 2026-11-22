@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Tests for code/16_q4.rkt (S2: insert-if-short and make-inserter).
+# Tests for code/67_q4.rkt (S2: insert-if-short and make-inserter).
 # Run from anywhere: bash tests/test_q4.sh (or through tests/run_all.sh)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.." || exit 1
 source tests/lib.sh
 
-ID="${GROUP_ID:-16}"
+ID="${GROUP_ID:-67}"
 FILE="code/${ID}_q4.rkt"
 
 rkt() {
