@@ -36,5 +36,21 @@
     (display res)
     (newline)))
 
+;; (make-inserter x len-ok?): returns a function of one argument (lst) that inserts x at the front of every list (at all nesting levels) whose original length satisfies predicate len-ok?.
+(define (make-inserter x len-ok?)
+  (letrec ([insert
+            (lambda (lst)
+              (let* ([orig-len (my-length lst)]
+                     [processed (my-map (lambda (elem)
+                                          (if (or (pair? elem) (null? elem))
+                                              (insert elem)
+                                              elem))
+                                        lst)])
+                (if (len-ok? orig-len)
+                    (cons x processed)
+                    processed)))])
+    insert))
+
+
 
 
