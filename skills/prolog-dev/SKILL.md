@@ -42,9 +42,9 @@ work asked for, touch only the files named in the prompt, and do not run git.
 
 ## 4. How to run and test
 
-- Main goal: `swipl -q -f code/<ID>_q1.pl -g main -t halt`
+- Main goal: `swipl -q -f code/16_q1.pl -g main -t halt`
 - Any other predicate: `swipl -q -f FILE -g "GOAL" -t halt`, for example
-  `swipl -q -f code/<ID>_q2.pl -g "all_equations([4,2,5,3],E), print(E), nl" -t halt`
+  `swipl -q -f code/16_q2.pl -g "all_equations([4,2,5,3],E), print(E), nl" -t halt`
 - To see a result, put the printing in the `-g` goal, never in the file.
 - Always run the code after writing it and show the real output in the answer.
   Never claim output that was not produced by an actual run.

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # check_rules.sh
-# Statically checks code/<ID>_q1.pl, code/<ID>_q2.pl, code/<ID>_q3.rkt, code/<ID>_q4.rkt
+# Statically checks code/16_q1.pl, code/16_q2.pl, code/16_q3.rkt, code/16_q4.rkt
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
