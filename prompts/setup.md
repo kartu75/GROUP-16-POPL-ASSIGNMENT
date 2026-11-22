@@ -85,3 +85,9 @@ Do not write any other file.
 ```
 Create tests/lib.sh and tests/run_all.sh. lib.sh defines a bash function check NAME EXPECTED ACTUAL that prints PASS NAME or FAIL NAME with the expected and actual values, and counts failures. It also defines run_pl FILE GOAL which runs swipl -q -f FILE -g "GOAL" -t halt, and run_rkt FILE CALLS_STRING [STDIN] which copies FILE to a temp file, appends CALLS_STRING to the end, and runs racket on the temp file, feeding STDIN if given. run_all.sh runs every tests/test_q*.sh in order and exits non-zero if any failed. Touch only these two files. Do not create any test_q*.sh yet.
 ```
+
+## H-2
+
+```
+Create tests/check_rules.sh that statically checks the four files code/<ID>_q1.pl, code/<ID>_q2.pl, code/<ID>_q3.rkt, code/<ID>_q4.rkt. For Prolog files report any use of assert, asserta, assertz, retract, b_setval, nb_setval, initialization, halt, and any use_module of a library other than lists, apply, yall, aggregate. For Racket files report: first line is not #lang racket/base, and any call (matching "(name " or "'name" patterns, not substrings of longer names like my-map) of: set!, vector, make-hash, hash, string, length, append, reverse, map, filter, member, memq, list-ref, list-tail, add1, sub1, equal?, eqv?, list?, for, do, printf, displayln, print. Also report any top-level expression that is not a define. Print one line per problem with file and line number, exit non-zero if any found. Touch only this file.
+```
