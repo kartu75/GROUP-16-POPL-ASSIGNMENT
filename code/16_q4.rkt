@@ -15,17 +15,9 @@
       (cons (f (car lst))
             (my-map f (cdr lst)))))
 
-;; (insert-if-short x lst n): inserts x at the front of every list at every level of nesting whose original length is less than n (base case: atoms are returned unchanged; recursive case: processes sublists via my-map, then prepends x if original length < n).
+;; (insert-if-short x lst n): inserts x at the front of every list (at all nesting levels) whose original length is less than n, defined via make-inserter.
 (define (insert-if-short x lst n)
-  (let* ([orig-len (my-length lst)]
-         [processed (my-map (lambda (elem)
-                              (if (or (pair? elem) (null? elem))
-                                  (insert-if-short x elem n)
-                                  elem))
-                            lst)])
-    (if (< orig-len n)
-        (cons x processed)
-        processed)))
+  ((make-inserter x (lambda (k) (< k n))) lst))
 
 ;; (print-insert-result): reads x, lst, and n in order from standard input, applies insert-if-short, and outputs the result with display followed by a newline.
 (define (print-insert-result)
