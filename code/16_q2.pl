@@ -69,5 +69,19 @@ equation(List, Equation) :-
     tree_string(RightTree, RightStr),
     format(string(Equation), "~s=~s", [LeftStr, RightStr]).
 
+% generate_equation(+List, -Equation): Equation is one valid equation string for List, found via once/1 over equation/2.
+generate_equation(List, Equation) :-
+    once(equation(List, Equation)).
+
+% all_equations(+List, -Equations): Equations is the deduplicated, sorted list of all valid equation strings for List.
+all_equations(List, Equations) :-
+    findall(Eq, equation(List, Eq), Raw),
+    sort(Raw, Equations).
+
+% count_equations(+List, -N): N is the number of unique valid equations formed by List.
+count_equations(List, N) :-
+    all_equations(List, Equations),
+    length(Equations, N).
+
 
 
