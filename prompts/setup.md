@@ -79,3 +79,9 @@ using else outside cond; treating () as an atom or an atom as a list
 my-append on long lists.
 Do not write any other file.
 ```
+
+## H-1
+
+```
+Create tests/lib.sh and tests/run_all.sh. lib.sh defines a bash function check NAME EXPECTED ACTUAL that prints PASS NAME or FAIL NAME with the expected and actual values, and counts failures. It also defines run_pl FILE GOAL which runs swipl -q -f FILE -g "GOAL" -t halt, and run_rkt FILE CALLS_STRING [STDIN] which copies FILE to a temp file, appends CALLS_STRING to the end, and runs racket on the temp file, feeding STDIN if given. run_all.sh runs every tests/test_q*.sh in order and exits non-zero if any failed. Touch only these two files. Do not create any test_q*.sh yet.
+```
