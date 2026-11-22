@@ -44,6 +44,10 @@ clue(8, Solution) :-
     member(p(_, Dept, Lang, data), Solution),
     Dept == research,
     Lang \== javascript.
+% CLUE 9: The friend who prefers the AI project works in the testing department.
+clue(9, Solution) :-
+    member(p(_, Dept, _, 'AI'), Solution),
+    Dept == testing.
 
 % satisfies(+Active, +Solution): every clue number N in the list Active holds in Solution (true for Active = []).
 satisfies(Active, Solution) :-
