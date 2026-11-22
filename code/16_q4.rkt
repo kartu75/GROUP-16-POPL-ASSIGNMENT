@@ -27,4 +27,14 @@
         (cons x processed)
         processed)))
 
+;; (print-insert-result): reads x, lst, and n in order from standard input, applies insert-if-short, and outputs the result with display followed by a newline.
+(define (print-insert-result)
+  (let* ([x (read)]
+         [lst (read)]
+         [n (read)]
+         [res (insert-if-short x lst n)])
+    (display res)
+    (newline)))
+
+
 
