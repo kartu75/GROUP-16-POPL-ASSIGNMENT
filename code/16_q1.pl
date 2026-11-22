@@ -44,3 +44,7 @@ clue(8, Solution) :-
     member(p(_, Dept, Lang, data), Solution),
     Dept == research,
     Lang \== javascript.
+
+% satisfies(+Active, +Solution): every clue number N in the list Active holds in Solution (true for Active = []).
+satisfies(Active, Solution) :-
+    forall(member(N, Active), clue(N, Solution)).
