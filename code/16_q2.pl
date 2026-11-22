@@ -58,4 +58,16 @@ format_right_operand(op(RightOp, L, R), ParentOp, Str) :-
     ;   Str = InnerStr
     ).
 
+% equation(+List, -Equation): Equation is an SWI-Prolog string "L=R" where non-empty left and right sub-lists of List form expression trees that evaluate to the same integer value.
+equation(List, Equation) :-
+    append(LeftPart, RightPart, List),
+    LeftPart = [_|_],
+    RightPart = [_|_],
+    expr_tree(LeftPart, LeftTree, Value),
+    expr_tree(RightPart, RightTree, Value),
+    tree_string(LeftTree, LeftStr),
+    tree_string(RightTree, RightStr),
+    format(string(Equation), "~s=~s", [LeftStr, RightStr]).
+
+
 
