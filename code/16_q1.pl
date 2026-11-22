@@ -48,3 +48,9 @@ clue(8, Solution) :-
 % satisfies(+Active, +Solution): every clue number N in the list Active holds in Solution (true for Active = []).
 satisfies(Active, Solution) :-
     forall(member(N, Active), clue(N, Solution)).
+
+% main: finds the first candidate that satisfies clues 1 to 8 and prints it as "Name = [Dept, Lang, Project]", one line per friend in the order Alex, Ben, Carla, Dana.
+main :-
+    once(( candidate(Solution), satisfies([1,2,3,4,5,6,7,8], Solution) )),
+    forall(member(p(Name, Dept, Lang, Project), Solution),
+           format("~w = [~w, ~w, ~w]~n", [Name, Dept, Lang, Project])).
