@@ -122,10 +122,14 @@ RACKET_FORBIDDEN = [
     "set!", "vector", "make-hash", "hash", "string", "length",
     "append", "reverse", "map", "filter", "member", "memq",
     "list-ref", "list-tail", "add1", "sub1", "equal?", "eqv?",
-    "list?", "for", "do", "printf", "displayln", "print"
+    "list?", "for", "do", "printf", "displayln", "print",
+    "foldl", "foldr", "apply", "empty?", "void", "build-list", "sort"
 ]
+# Match the name as a whole identifier anywhere, not only right after "(":
+# this also catches a forbidden function passed as a value, e.g. (my-map add1 l).
+# Names like my-map or my-length do not match, because "-" is not a delimiter.
 rkt_call_patterns = [
-    (name, re.compile(r"(?:[\(\[]\s*|\x27)" + re.escape(name) + r"(?=[()\s\[\]{}\";\x27]|$)"))
+    (name, re.compile(r"(?:^|(?<=[\s()\[\]{}\x27`,]))" + re.escape(name) + r"(?=[()\s\[\]{}\";\x27`,]|$)"))
     for name in RACKET_FORBIDDEN
 ]
 
